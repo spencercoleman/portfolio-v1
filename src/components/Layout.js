@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import GlobalStyle from "../styles/GlobalStyle";
+import Head from './Head';
 
 const Layout = ({ children }) => {
     return (
         <>
-            {/* TODO: Add head */}
+            <Head />
             <div id="root">
                 <GlobalStyle />
                 {/* TODO: Add navbar */}

@@ -1,6 +1,10 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    title: 'Spencer Coleman',
+    description:
+      '',
+    siteUrl: 'https://www.spencercoleman.dev', 
+    image: '',
   },
-  plugins: [],
+  plugins: ['gatsby-plugin-react-helmet'],
 }
