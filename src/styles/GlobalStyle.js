@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     section {
         max-width: 1000px;
         margin: 0 auto;
+        padding: 50px 0;
     }
 
     main {
