@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import "@fontsource/roboto-slab";
 import "@fontsource/merriweather";
 import "@fontsource/lato";
 
@@ -48,6 +47,10 @@ const GlobalStyle = createGlobalStyle`
         background: linear-gradient(140deg, #bb9af7 15%, #7aa2f7 35%, #7dcfff 60%, #b4f9f8 85%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    h3 {
+        font-size: 30px;
     }
 `;
 
