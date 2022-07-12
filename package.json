@@ -20,6 +20,8 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
+    "@fontsource/lato": "^4.5.8",
+    "@fontsource/merriweather": "^4.5.12",
     "gatsby-plugin-react-helmet": "^5.18.0",
     "prop-types": "^15.8.1",
     "react-helmet": "^6.1.0",
