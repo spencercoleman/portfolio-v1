@@ -6,5 +6,8 @@ module.exports = {
     siteUrl: 'https://www.spencercoleman.dev', 
     image: '',
   },
-  plugins: ['gatsby-plugin-react-helmet'],
+  plugins: [
+    `gatsby-plugin-react-helmet`,  
+    `gatsby-plugin-styled-components`,
+  ],
 }

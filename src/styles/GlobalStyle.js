@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         --font-serif: "Merriweather", serif;
         --bluebell: #9aa5ce;
         --night: #1a1b26;
+        --gradient: linear-gradient(140deg, #bb9af7 15%, #7aa2f7 35%, #7dcfff 60%, #b4f9f8 85%);
     }
 
     html {
@@ -45,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 
     h1, h3 {
         font-family: var(--font-serif);
-        background: linear-gradient(140deg, #bb9af7 15%, #7aa2f7 35%, #7dcfff 60%, #b4f9f8 85%);
+        background: var(--gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }

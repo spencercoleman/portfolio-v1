@@ -22,7 +22,9 @@
   "devDependencies": {
     "@fontsource/lato": "^4.5.8",
     "@fontsource/merriweather": "^4.5.12",
+    "babel-plugin-styled-components": "^2.0.7",
     "gatsby-plugin-react-helmet": "^5.18.0",
+    "gatsby-plugin-styled-components": "^5.18.0",
     "prop-types": "^15.8.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.5"
