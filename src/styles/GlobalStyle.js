@@ -1,11 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import "@fontsource/sintony"
-import "@fontsource/source-sans-pro";
 
 const GlobalStyle = createGlobalStyle`
     :root {
         --font-main: "Sintony", sans-serif;
-        --font-acc: "Source Sans Pro", serif;
+        --font-acc: "Source Sans Pro", sans-serif;
         --font-size-xxl: 3.05rem;
         --font-size-xl: 2.44rem;
         --font-size-lg: 1.95rem;
@@ -14,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
         --font-size-sm: 0.8rem;
         --font-size-xs: 0.64rem;
         --color-dove: #6E6E6E;
+        --color-jelly: #2574A9;
         --color-merino: #F7F2E7;
+        --color-paarl: #A75925;
         --color-tundora: #424242;
     }
 
@@ -58,7 +58,6 @@ const GlobalStyle = createGlobalStyle`
 
     h1, h2 {
         margin: 0;
-        margin-bottom: var(--font-size-xs);
     }
 
     h1, h3 {
@@ -69,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
 
     h2 {
         font-size: clamp(var(--font-size-md), 6vw, var(--font-size-xl));
-        font-weight: 400;
+        margin-bottom: 10px;
     }
 
     h3 {

@@ -36,6 +36,8 @@
     "prop-types": "^15.8.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
+    "react-rough-notation": "^1.0.2",
+    "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.5"
   }
 }
