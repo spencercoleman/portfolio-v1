@@ -54,6 +54,15 @@ const GlobalStyle = createGlobalStyle`
     h3 {
         font-size: 30px;
     }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        
+        &:hover, &:focus {
+          color: var(--green);
+    }
 `;
 
 export default GlobalStyle;
