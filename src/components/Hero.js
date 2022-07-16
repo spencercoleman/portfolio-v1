@@ -6,16 +6,6 @@ const HeroSection = styled.section`
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-
-    h1 {
-        font-size: clamp(40px, 7vw, 60px);
-        margin: 0.25rem 0;
-    }
-
-    h2 {
-        font-size: clamp(35px, 6.5vw, 55px);
-        margin: 0.25rem 0;
-    }
 `;
 
 const Hero = () => {

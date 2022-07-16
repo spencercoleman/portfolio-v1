@@ -5,58 +5,65 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FiCode, FiExternalLink } from 'react-icons/fi';
 import styled from "styled-components";
 
-const FeaturedSection = styled.section``;
+const FeaturedSection = styled.section`
+`;
 
 const WorksList = styled.ul`
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 50px;
 `;
 
 const Work = styled.li`
-    margin-bottom: 100px;
     position: relative;
-    display: grid;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    border: 1px solid;
 
-    :last-of-type {
-        margin-bottom: 0;
+    :hover {
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     }
 
     .work-details {
-        z-index: 5;
-        height: 100%;
-        grid-column: 1 / -1;
-        grid-row: 1 / -1;
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
         > p {
-            flex-grow: 1;
+            border-top: 1px solid;
+            margin: 0;
+            padding: 25px 10px;
         }
     }
 
     .work-header {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        border-bottom: 1px solid;
 
         > h4 {
             margin: 0;
-            font-size: 25px;
+            font-size: var(--font-size-main);
             margin-right: auto;
+            font-weight: 400;
+            padding: 10px;
+
+            :hover {
+                > a {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 
     .work-techs, .work-links {
         list-style: none;
-        padding: 0;
         display: flex;
         flex-wrap: wrap;
        
         > li {
-            margin-right: 2rem;
+            > a {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+            }
 
             :last-of-type {
                 margin-right: 0;
@@ -65,21 +72,50 @@ const Work = styled.li`
     }
 
     .work-techs {
-        font-size: 16px;
+        font-size: var(--font-size-sm);
+        border-top: 1px solid;
+        padding: 0;
+
+        > li {
+            padding: 10px;
+        }
     }
 
-    .work-image {
-        grid-column: 1 / -1;
-        grid-row: 1 / -1; 
-        z-index: 1;
-        height: 100%;
-        mix-blend-mode: multiply;
+    .work-links {
+        padding: 0;
     }
 
     .gatsby-img {
         object-fit: cover;
         width: auto;
-        height: 100%;
+        min-height: 300px;
+    }
+
+    &:nth-of-type(even) {
+        text-align: right;
+
+        .work-header {
+            flex-direction: row-reverse;
+            flex-wrap: wrap-reverse;
+
+            > h4 {
+                margin-right: 0; 
+                margin-left: auto;
+            }
+        }
+
+        .work-techs, .work-links {
+            flex-direction: row-reverse;
+            flex-wrap: wrap-reverse;
+        }
+
+        .work-links {
+            > li {
+                :last-of-type {
+                    transform: scaleX(-1);
+                }
+            }
+        }
     }
 `;
 
@@ -108,7 +144,6 @@ const FeaturedWork = () => {
 
     return (
         <FeaturedSection>
-            <h3>My Work</h3>
             <WorksList>
                 {data.allMdx.nodes.map(node => {
                     const {title, image, url, repo_url, tech} = node.frontmatter;
@@ -116,14 +151,31 @@ const FeaturedWork = () => {
                     
                     return (
                         <Work key={title}>
+                            <div className="work-header">
+                                <h4><a href={url} target="_blank" rel="noreferrer">{title}</a></h4>
+                                <ul className="work-links">
+                                    <li>
+                                        <a href={repo_url} target="_blank" rel="noreferrer" aria-label="Source Code">
+                                            <FiCode name="Source" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href={url} target="_blank" rel="noreferrer" aria-label="External Site">
+                                            <FiExternalLink name="External" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="work-image">
+                                <a href={url} target="_blank" rel="noreferrer">
+                                    <GatsbyImage
+                                        className="gatsby-img"
+                                        image={preview}
+                                        alt={title}
+                                    />
+                                </a>
+                            </div>
                             <div className="work-details">
-                                <div className="work-header">
-                                    <h4>{title}</h4>
-                                    <ul className="work-links">
-                                        <li><a href={repo_url} target="_blank" rel="noreferrer"><FiCode /></a></li>
-                                        <li><a href={url} target="_blank" rel="noreferrer"><FiExternalLink /></a></li>
-                                    </ul>
-                                </div>
                                 <MDXRenderer>
                                     {node.body}
                                 </MDXRenderer>
@@ -132,13 +184,6 @@ const FeaturedWork = () => {
                                         <li key={`${title}_${el}`}>{el}</li>
                                     )}
                                 </ul>
-                            </div>
-                            <div className="work-image">
-                                <GatsbyImage
-                                    className="gatsby-img"
-                                    image={preview}
-                                    alt={title}
-                                />
                             </div>
                         </Work>
                     )

@@ -1,25 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContactSection = styled.section``;
+const ContactSection = styled.section`
+    border-top: 1px solid;
+`;
 
 const ContactButton = styled.a`
     display: block;
     text-decoration: none;
-    color: var(--bluebell);
-    padding: 1rem 2rem;
-    border: 2px solid var(--bluebell);
-    border-radius: 0.5rem;
+    border: 1px solid;
+    padding: 10px;
     width: fit-content;
-    margin: 2rem 0;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: var(--font-size-sm);
+    margin-top: 25px;
+
+    :hover {
+        transform: translateY(-1px);
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    }
 `;
 
 const Contact = () => {
     return (
         <ContactSection>
-            <h3>Reach Out</h3>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                 incididunt ut labore et dolore magna aliqua.
