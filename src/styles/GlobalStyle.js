@@ -50,9 +50,11 @@ const GlobalStyle = createGlobalStyle`
 
     main {
         padding: 0 25px;
+        padding-bottom: 125px;
 
         @media (min-width: 768px) {
             padding: 0 50px;
+            padding-bottom: 125px;
         }
     }
 

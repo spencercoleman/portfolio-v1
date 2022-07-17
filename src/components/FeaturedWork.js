@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { useInViewport } from 'react-in-viewport';
+import { RoughNotation } from "react-rough-notation";
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FiCode, FiExternalLink } from 'react-icons/fi';
 import styled from "styled-components";
 
 const FeaturedSection = styled.section`
+    > p {
+        margin-bottom: 50px;
+    }
 `;
 
 const WorksList = styled.ul`
@@ -120,6 +125,9 @@ const Work = styled.li`
 `;
 
 const FeaturedWork = () => {
+    const workRef= useRef(null);
+    const { enterCount } = useInViewport(workRef);
+
     const data = useStaticQuery(graphql`
         query {
             allMdx(sort: {fields: frontmatter___date, order: DESC}) {
@@ -143,7 +151,12 @@ const FeaturedWork = () => {
     `);
 
     return (
-        <FeaturedSection>
+        <FeaturedSection ref={workRef}>
+            <p>
+                <RoughNotation type="circle" color="var(--color-jelly)" strokeWidth={2} iterations={3} padding={20} show={enterCount} animationDelay={2500}>
+                    Recent personal projects
+                </RoughNotation>
+            </p>
             <WorksList>
                 {data.allMdx.nodes.map(node => {
                     const {title, image, url, repo_url, tech} = node.frontmatter;
