@@ -1,35 +1,41 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import { useInViewport } from 'react-in-viewport';
+import { RoughNotation } from "react-rough-notation";
 
 const ContactSection = styled.section`
     border-top: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+    padding: 50px;
 `;
 
 const ContactButton = styled.a`
     display: block;
     text-decoration: none;
-    border: 1px solid;
-    padding: 10px;
+    border: none;
+    padding: 10px 20px;
     width: fit-content;
-    font-size: var(--font-size-sm);
-    margin-top: 25px;
-
-    :hover {
-        transform: translateY(-1px);
-        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-    }
+    font-weight: 700;
 `;
 
 const Contact = () => {
+    const contactRef = useRef(null);
+    const {enterCount} = useInViewport(contactRef);
+
     return (
-        <ContactSection>
+        <ContactSection ref={contactRef}>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua.
+                If you have any questions, comments, or just want to say hello, feel free to reach out! My inbox is always open.
             </p>
-            <ContactButton href="mailto:hello@spencercoleman.dev">
-                Say Hi
-            </ContactButton>
+            <RoughNotation type="box" color="var(--color-jelly)" strokeWidth={2} iterations={4} show={enterCount}>
+                <ContactButton href="mailto:hello@spencercoleman.dev">
+                    Say Hi
+                </ContactButton>
+            </RoughNotation>
         </ContactSection>
     );
 }

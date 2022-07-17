@@ -42,18 +42,18 @@ const Work = styled.li`
         flex-wrap: wrap;
         align-items: center;
         border-bottom: 1px solid;
+    }
 
-        > h4 {
-            margin: 0;
-            font-size: var(--font-size-main);
-            margin-right: auto;
-            font-weight: 400;
-            padding: 10px;
+    .work-title {
+        margin: 0;
+        font-size: var(--font-size-main);
+        margin-right: auto;
+        font-weight: 400;
+        padding: 10px;
 
-            :hover {
-                > a {
-                    text-decoration: underline;
-                }
+        :hover {
+            > a {
+                text-decoration: underline;
             }
         }
     }
@@ -102,11 +102,11 @@ const Work = styled.li`
         .work-header {
             flex-direction: row-reverse;
             flex-wrap: wrap-reverse;
+        }
 
-            > h4 {
-                margin-right: 0; 
-                margin-left: auto;
-            }
+        .work-title {
+            margin-right: 0; 
+            margin-left: auto;
         }
 
         .work-techs, .work-links {
@@ -154,7 +154,7 @@ const FeaturedWork = () => {
         <FeaturedSection ref={workRef}>
             <p>
                 <RoughNotation type="circle" color="var(--color-jelly)" strokeWidth={2} iterations={3} padding={20} show={enterCount} animationDelay={2500}>
-                    Recent personal projects
+                    <strong>Recent personal projects</strong>
                 </RoughNotation>
             </p>
             <WorksList>
@@ -165,7 +165,7 @@ const FeaturedWork = () => {
                     return (
                         <Work key={title}>
                             <div className="work-header">
-                                <h4><a href={url} target="_blank" rel="noreferrer">{title}</a></h4>
+                                <div className="work-title"><a href={url} target="_blank" rel="noreferrer">{title}</a></div>
                                 <ul className="work-links">
                                     <li>
                                         <a href={repo_url} target="_blank" rel="noreferrer" aria-label="Source Code">
