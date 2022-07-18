@@ -20,5 +20,17 @@ module.exports = {
         path: `${__dirname}/content/works`,
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'SpencerColeman',
+        short_name: 'SpencerColeman',
+        start_url: '/',
+        background_color: '#F7F2E7',
+        theme_color: '#F7F2E7',
+        display: 'standalone',
+        icon: 'src/images/icon.png',
+      },
+    },
   ],
 }
