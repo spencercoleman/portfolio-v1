@@ -9,12 +9,9 @@ const Layout = ({ children }) => {
             <Head />
             <div id="root">
                 <GlobalStyle />
-                {/* TODO: Add navbar */}
-                {/* TODO: Add links */}
                 <main>
                     {children}
                 </main>
-                {/* TODO: Add footer */}
             </div>
         </>
     );

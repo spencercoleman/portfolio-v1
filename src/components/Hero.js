@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useInViewport } from 'react-in-viewport';
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import styled from "styled-components";
 
 const HeroSection = styled.section`
@@ -17,9 +18,18 @@ const HeroSection = styled.section`
         gap: 10px;
     }
 
-    a {
+    .company {
         color: var(--color-jelly);
         font-weight: 700;
+    }
+
+    ul {
+        list-style: none;
+        margin: 10px 0;
+        padding: 0;
+        font-size: var(--font-size-md);
+        display: flex;
+        gap: 20px;
     }
 `;
 
@@ -46,11 +56,15 @@ const Hero = () => {
                         <p>
                             Currently developing tools to streamline global payments at {' '} 
                             <RoughNotation type="underline" color="var(--color-jelly)" strokeWidth={2} iterations={3}>
-                                <a href="https://www.paymentlabs.io/" target="_blank" rel="noreferrer">Payment Labs</a>
+                                <a className="company" href="https://www.paymentlabs.io/" target="_blank" rel="noreferrer">Payment Labs</a>
                             </RoughNotation>. 
                         </p>
                 </div>
             </RoughNotationGroup>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/spencercoleman" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile"><BsLinkedin name="LinkedIn" /></a></li>
+                <li><a href="https://github.com/spencercoleman" target="_blank" rel="noreferrer" aria-label="GitHub Profile"><BsGithub name="GitHub" /></a></li>
+            </ul>
         </HeroSection>
     );
 }
