@@ -13,7 +13,7 @@ const AboutSection = styled.section`
     .tech-container {
         grid-column: 1 / 3;
 
-        @media (min-width: 600px) {
+        @media (min-width: 710px) {
             grid-column: 1 / 2;
         }
     }

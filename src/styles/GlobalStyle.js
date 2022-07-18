@@ -25,10 +25,23 @@ const GlobalStyle = createGlobalStyle`
         font-size: var(--font-size-base);
         color: var(--color-dove);
         background-color: var(--color-merino);
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.25);
 
         @media (min-width: 992px) {
             font-size: 16px;
         }
+    }
+
+    ::-webkit-scrollbar {
+        width: 13px;
+    }
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
     }
 
     *,
