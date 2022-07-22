@@ -7,10 +7,11 @@ import styled from "styled-components";
 const HeroSection = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    margin-bottom: 10px;
-    padding-bottom: 125px;
+    padding: 100px 0 50px 0;
+
+    @media (min-width: 768px) {
+        padding-top: 150px;
+    }
 
     .details {
         margin-top: 0;

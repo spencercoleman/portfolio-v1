@@ -8,8 +8,15 @@ import { FiCode, FiExternalLink } from 'react-icons/fi';
 import styled from "styled-components";
 
 const FeaturedSection = styled.section`
-    > p {
-        margin-bottom: 50px;
+    padding: 0;
+
+    .section-title {
+        font-size: var(--font-size-md);
+        margin-bottom: 30px;
+
+        @media (min-width: 768px) {
+            margin-bottom: 50px;
+        }
     }
 `;
 
@@ -26,11 +33,12 @@ const Work = styled.li`
     border: 1px solid;
 
     :hover {
-        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, 
+                    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     }
 
     .work-details {
-        > p {
+        p {
             border-top: 1px solid;
             margin: 0;
             padding: 25px 10px;
@@ -52,7 +60,7 @@ const Work = styled.li`
         padding: 10px;
 
         :hover {
-            > a {
+            a {
                 text-decoration: underline;
             }
         }
@@ -63,8 +71,8 @@ const Work = styled.li`
         display: flex;
         flex-wrap: wrap;
        
-        > li {
-            > a {
+        li {
+            a {
                 display: flex;
                 align-items: center;
                 padding: 10px;
@@ -81,7 +89,7 @@ const Work = styled.li`
         border-top: 1px solid;
         padding: 0;
 
-        > li {
+        li {
             padding: 10px;
         }
     }
@@ -115,7 +123,7 @@ const Work = styled.li`
         }
 
         .work-links {
-            > li {
+            li {
                 :last-of-type {
                     transform: scaleX(-1);
                 }
@@ -152,11 +160,11 @@ const FeaturedWork = () => {
 
     return (
         <FeaturedSection ref={workRef}>
-            <p>
-                <RoughNotation type="circle" color="var(--color-jelly)" strokeWidth={2} iterations={3} padding={20} show={enterCount} animationDelay={2500}>
-                    <strong>Recent personal projects</strong>
+            <h3 className="section-title">
+                <RoughNotation type="box" color="var(--color-paarl)" strokeWidth={2} iterations={3} padding={10} show={enterCount} animationDelay={2300}>
+                    Recent personal projects
                 </RoughNotation>
-            </p>
+            </h3>
             <WorksList>
                 {data.allMdx.nodes.map(node => {
                     const {title, image, url, repo_url, tech} = node.frontmatter;
